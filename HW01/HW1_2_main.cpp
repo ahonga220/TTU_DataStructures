@@ -4,6 +4,9 @@
 2.刪除功能：使用者每輸入一個整數，便將Linked List所有相同數字的節點刪除；若List中無該數字，則不處理。
 最後將Linked List節點裡的值一一display到螢幕上。
 */
+
+//add your code here
+
 #include <iostream>
 #include <cctype>
 
@@ -90,3 +93,10 @@ int main() {
 
     return 0;
 }
+
+/*
+TestData
+i0 i2 i0 i0 i2 i5 i5 i9 i9 i5 d0 d5 d2 i2 d9 d2
+d9 d8 i5 i5 i0 i0 i2 i5 i0 i9 d5 i9 d0 i2 d9 i2 d2
+i2 i9 i-9 i-8 i2 i8 i7 i-7 d5 d6 d-9 d9 d8 d-8 i2 d7 d7 d2 d-7
+*/
