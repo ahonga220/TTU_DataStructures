@@ -76,25 +76,27 @@ void printLinkBackward(nodePtr *Ptr) {
 }
 
 int main() {
-    int num;
-    int array[MAX_terms] = { 0 };
-    nodePtr *headPtr = nullptr;
-
-    cout << "Input " << MAX_terms << " numbers: ";
-    for(int i = 0; i < MAX_terms; i++) {
-        cin >> num;
-        array[i] = num;
-        headPtr = inputListData(num, headPtr);
+    while(true) {
+        int num;
+        int array[MAX_terms] = { 0 };
+        nodePtr *headPtr = nullptr;
+    
+        cout << "Input " << MAX_terms << " numbers: ";
+        for(int i = 0; i < MAX_terms; i++) {
+            cin >> num;
+            array[i] = num;
+            headPtr = inputListData(num, headPtr);
+        }
+    
+        cout << "\nArray Forward Iteratively: ";
+        printArrayForward(array);
+        cout << "\nArray Backward Recursively: ";
+        printArrayBackward(array, 0);
+        cout << "\nList Forward Iteratively: ";
+        printLinkForward(headPtr);
+        cout << "\nList Backward Recursively: ";
+        printLinkBackward(headPtr);
     }
-
-    cout << "\nArray Forward Iteratively: ";
-    printArrayForward(array);
-    cout << "\nArray Backward Recursively: ";
-    printArrayBackward(array, 0);
-    cout << "\nList Forward Iteratively: ";
-    printLinkForward(headPtr);
-    cout << "\nList Backward Recursively: ";
-    printLinkBackward(headPtr);
-
+    
     return 0;
 }
