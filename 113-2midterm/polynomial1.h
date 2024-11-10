@@ -31,9 +31,6 @@ public:
 
 	void inputTerms(int coef, int expo)
 	{
-
-		// modify the following code and add your code here
-
 		int i = 0;
 
 		for (; terms[i].coef != 0 && i < MAX_TERMS; i++);
