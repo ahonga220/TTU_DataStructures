@@ -113,17 +113,11 @@ vector<ItemType> LinkedBag<ItemType>::toVector() const
 template<class ItemType>
 bool LinkedBag<ItemType>::remove(const ItemType& anEntry)
 {
-
-	// add your code here
-
 	return false;
 }
 
 template<class ItemType>
 bool LinkedBag<ItemType>::removeDuplicate()
 {
-
-	// add your code here
-
 	return false;
 }
