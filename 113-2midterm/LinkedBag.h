@@ -69,26 +69,26 @@ void LinkedBag<ItemType>::clear()
 
 template<class ItemType>
 bool LinkedBag<ItemType>::add(const ItemType& newEntry)
-{   
+{
 
 	// add your code here
 
    Node<ItemType> *curPtr = headPtr;
-   Node<ItemType> *prePtr = nullptr;
-   Node<ItemType> *tempPtr = new Node<ItemType>(newEntry);
-   //tempPtr->setItem(newEntry);
    
    while(curPtr) {
       if(curPtr->getItem() == newEntry)
          return false;
-      prePtr = curPtr;
+      if(!curPtr->getNext())
+         break;
       curPtr = curPtr->getNext();
    }
 
-   if(!prePtr)
-      headPtr = tempPtr;
+   Node<ItemType> *tempPtr = new Node<ItemType>(newEntry);
+   
+   if(curPtr)
+      curPtr->setNext(tempPtr);
    else
-      prePtr->setNext(tempPtr);
+      headPtr = tempPtr;
    itemCount++;
 
 	return true;
