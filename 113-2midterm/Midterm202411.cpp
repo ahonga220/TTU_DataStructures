@@ -50,9 +50,10 @@ bool isIncreasing(int A[], int size)
 
 	// add your code here
 
-	return (size == 2) ? true : (size == 1 || A[size - 1] <= A[size - 2]) ? false : isIncreasing(A, size - 1);
-	// if(size == 2) return true
+	return  (size == 1 || A[size - 1] <= A[size - 2]) ? false : (size == 2) ? true : isIncreasing(A, size - 1);
+	
 	// if(size == 1 || A[size - 1] <= A[size - 2]) return false
+	// if(size == 2) return true
 	// return isIncreasing(A, size - 1)
 }
 
@@ -62,6 +63,7 @@ bool isSymmetrical(int A[], int begin, int end)
 	// add your code here
 
 	return (begin >= end) ? true : (A[begin] != A[end]) ? false : isSymmetrical(A, begin + 1, end - 1);
+	
 	// if(begin >= end) return true
 	// if(A[begin] != A[end]) return false
 	// return isSymmetrical(A, begin + 1, end - 1)
@@ -84,6 +86,7 @@ int SumOddNumbers(int A[], int size)
 	// add your code here
 
 	return (!size) ? 0 : (A[size - 1] % 2) ? A[size - 1] + SumOddNumbers(A, size - 1) : SumOddNumbers(A, size - 1);
+	
 	// if(!size) return 0
 	// if(A[size - 1] % 2) return A[size - 1] + sumoddnumbers(A, size - 1)
 	// else return sumoddnumbers(A, size - 1)
