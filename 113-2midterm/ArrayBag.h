@@ -80,17 +80,11 @@ bool ArrayBag<ItemType>::add(const ItemType& newEntry)
 template<class ItemType>
 bool ArrayBag<ItemType>::remove(const ItemType& anEntry)
 {
-
-	// add yor code here
-
 	return false;
 }
 
 template<class ItemType>
 bool ArrayBag<ItemType>::removeDuplicate()
 {
-
-	// add yor code here
-
 	return false;
 }
