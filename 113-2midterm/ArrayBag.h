@@ -66,13 +66,11 @@ bool ArrayBag<ItemType>::add(const ItemType& newEntry)
 	bool hasRoomToAdd = (itemCount < maxItems);
 
 	if(hasRoomToAdd) {
-		size_t i = 0;
-		for(; i < itemCount; i++) {
+		for(size_t i = 0; i < itemCount; i++) {
 			if(items[i] == newEntry)
 				return false;
 		}
-		items[i] = newEntry;
-		itemCount++;
+		items[itemCount++] = newEntry;
 		return true;
 	}
 
