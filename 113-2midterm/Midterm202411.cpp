@@ -45,11 +45,16 @@ int inputNumber(string sMessage, int A[])
 
 // ================ Question 1 Begins Here ==================
 
+// 遞迴檢查陣列是否為嚴格遞增數列
 bool isIncreasing(int A[], int size)
 {
 
 	// add your code here
 
+	// 若陣列大小為 1，返回 false，視為非遞增
+    	// 若最後一個元素小於或等於倒數第二個元素，則陣列不是遞增的
+    	// 若陣列剩下兩個元素且符合遞增條件，返回 true
+   	 // 否則，遞迴檢查陣列的前 size - 1 個元素
 	return  (size == 1 || A[size - 1] <= A[size - 2]) ? false : (size == 2) ? true : isIncreasing(A, size - 1);
 	
 	// if(size == 1 || A[size - 1] <= A[size - 2]) return false
@@ -57,11 +62,15 @@ bool isIncreasing(int A[], int size)
 	// return isIncreasing(A, size - 1)
 }
 
+// 遞迴檢查陣列是否對稱
 bool isSymmetrical(int A[], int begin, int end)
 {
 
 	// add your code here
 
+	// 若起始索引大於或等於終止索引，則視為對稱
+	// 若起始索引元素不等於終止索引元素，則不是對稱
+	// 否則，遞迴檢查去掉兩端元素後的子陣列
 	return (begin >= end) ? true : (A[begin] != A[end]) ? false : isSymmetrical(A, begin + 1, end - 1);
 	
 	// if(begin >= end) return true
@@ -69,22 +78,30 @@ bool isSymmetrical(int A[], int begin, int end)
 	// return isSymmetrical(A, begin + 1, end - 1)
 }
 
+// 遞迴輸出陣列中的奇數
 void printOddNumbers(int A[], int size)
 {
 
 	// add your code here
 
+	// 基礎條件：若陣列大小為 0，則返回
 	if(size == 0) 
 		return;
+	// 遞迴處理陣列的前 size - 1 個元素
 	printOddNumbers(A, size - 1);
+	// 若當前元素為奇數，則輸出
 	if(A[size - 1] % 2) 
 		cout << A[size - 1] << " ";
 }
 
+// 遞迴計算陣列中的奇數總和
 int SumOddNumbers(int A[], int size)
 {
 	// add your code here
 
+	// 基礎條件：若陣列大小為 0，則總和為 0
+	// 若當前元素為奇數，則加上該元素並遞迴處理剩餘陣列
+	// 若當前元素為偶數，則跳過並遞迴處理剩餘陣列
 	return (!size) ? 0 : (A[size - 1] % 2) ? A[size - 1] + SumOddNumbers(A, size - 1) : SumOddNumbers(A, size - 1);
 	
 	// if(!size) return 0
