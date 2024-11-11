@@ -73,25 +73,32 @@ bool LinkedBag<ItemType>::add(const ItemType& newEntry)
 
 	// add your code here
 
-   Node<ItemType> *curPtr = headPtr;
+       	// 宣告指標 curPtr 指向串列的開頭（headPtr）
+    	Node<ItemType> *curPtr = headPtr;
    
-   while(curPtr) {
-      if(curPtr->getItem() == newEntry)
-         return false;
-      if(!curPtr->getNext())
-         break;
-      curPtr = curPtr->getNext();
-   }
+    	// 使用迴圈檢查鏈結串列中是否已有新項目（避免重複）
+    	while (curPtr) {
+        	// 若找到重複項目，則返回 false，不執行添加
+        	if (curPtr->getItem() == newEntry)
+            		return false;
+        	// 若 curPtr 指向鏈結串列的最後一個節點，則中止迴圈
+        	if (!curPtr->getNext())
+            		break;
+        	// 移動 curPtr 指向下一個節點
+        	curPtr = curPtr->getNext();
+    	}
 
-   Node<ItemType> *tempPtr = new Node<ItemType>(newEntry);
-   
-   if(curPtr)
-      curPtr->setNext(tempPtr);
-   else
-      headPtr = tempPtr;
-   itemCount++;
-
-	return true;
+	// 建立新節點 tempPtr，並存入新項目 newEntry
+	Node<ItemType> *tempPtr = new Node<ItemType>(newEntry);
+	   
+	if (curPtr) // 若 curPtr 非空（即鏈結串列有其他節點），將新節點添加到串列尾端
+		curPtr->setNext(tempPtr);
+	else // 若 curPtr 為空，表示鏈結串列為空，將新節點設為 headPtr
+	        headPtr = tempPtr;
+	   
+	// 更新鏈結串列的項目數
+	itemCount++;
+	return true; // 成功添加新項目
 }  
 
 template<class ItemType>
