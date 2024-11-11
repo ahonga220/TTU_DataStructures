@@ -63,22 +63,19 @@ bool ArrayBag<ItemType>::add(const ItemType& newEntry)
 
 	// add your code here
 
-	// 檢查陣列是否有空間可添加新項目（判斷當前項目數是否小於最大容量）
-	bool hasRoomToAdd = (itemCount < maxItems);
-
-	if(hasRoomToAdd) { // 如果有空間
-		// 檢查新項目是否已經存在於陣列中
-		for(size_t i = 0; i < itemCount; i++) {
-			if(items[i] == newEntry) // 若找到重複項目
-				return false; // 返回 false，不添加新項目
-		}
-		// 若未發現重複項目，將新項目添加到陣列並增加 itemCount
-		items[itemCount++] = newEntry;
-		return true; // 添加成功，返回 true
+	// 若陣列已滿，直接返回 false
+	if (itemCount >= maxItems)
+	        return false;
+	
+	// 檢查新項目是否已存在，若重複則返回 false
+	for (size_t i = 0; i < itemCount; i++) {
+		if (items[i] == newEntry)
+	            return false;
 	}
-
-	// 若無法添加（無空間），返回 false
-	return false;
+	    
+	// 添加新項目並增加 itemCount，返回 true 表示成功
+	items[itemCount++] = newEntry;
+	return true;
 }
 
 template<class ItemType>
